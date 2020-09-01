@@ -1,0 +1,43 @@
+POST http://localhost:5000/auth/token
+
+###
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+  "checkValid": ["email","vasfamilyforum@gmail.com"]
+}
+
+###
+
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+  "register": 
+    {
+      "message": "test messageaaa",
+      "email": "nhat.nguyen11aa25@gmail.com",
+      "password": "Minhnhat34",
+      "handle": "sdfgsdfaaasdrdfgs",
+      "name": "Minh  A  Nhat"
+    }
+}
+
+###
+
+POST http://localhost:5000/test
+Content-Type: application/json
+
+{
+  "register": 
+    {
+      "message": "test messageaaa",
+      "email": "1asdv@gmail.com",
+      "password": "Minhnhat34",
+      "handle": "asdvLeonAdvice",
+      "name": "Minh    Nhat"
+    }
+}
+
+###
