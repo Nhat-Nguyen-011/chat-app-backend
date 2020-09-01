@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 const authRoutes = require('./Routes/authRoutes');
 
-// app.use('/auth', authRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
   res.send('hello world');
