@@ -1,23 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
-const port = process.env.PORT;
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 //DATABASE STUFF
 const mongoose = require('mongoose');
 const DBKEY = process.env.DBKEY;
 mongoose.connect(DBKEY, { useNewUrlParser: true, useUnifiedTopology: true });
 
-//Routes
-const default_route = require('./routes/unprotected/default.route');
-const register_route = require('./routes/unprotected/register.route');
-const login_route = require('./routes/unprotected/login.route');
+const PORT = process.env.PORT || 3000;
 
-app.use('/', default_route);
-app.use('/register', register_route);
-app.use('/login', login_route);
+const authRoutes = require('./Routes/authRoutes');
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.use('/auth', authRoutes);
+
+app.listen(PORT, () => console.log(`rest service is running on port ${PORT}`));
